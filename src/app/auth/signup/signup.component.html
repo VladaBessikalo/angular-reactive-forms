@@ -176,4 +176,7 @@
     </button>
     <button type="submit" class="button">Sign up</button>
   </p>
+  @if (form.touched && form.invalid) {
+  <p class="control-error">Invalid Form - please provide all the information</p>
+  }
 </form>
