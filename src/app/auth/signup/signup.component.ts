@@ -49,7 +49,6 @@ export class SignupComponent {
   }
 
   onReset() {
-    const enteredEmail = this.form.value.email;
-    const enteredPassword = this.form.value.password;
+    this.form.setValue({ email: '', password: '' });
   }
 }
