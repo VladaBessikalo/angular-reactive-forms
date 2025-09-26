@@ -21,6 +21,19 @@ export class SignupComponent {
     password: new FormControl('', {
       validators: [Validators.required, Validators.minLength(6)],
     }),
+    confirmPassword: new FormControl('', {
+      validators: [Validators.required, Validators.minLength(6)],
+    }),
+    firstName: new FormControl('', { validators: [Validators.required] }),
+    lastName: new FormControl('', { validators: [Validators.required] }),
+    street: new FormControl('', { validators: [Validators.required] }),
+    number: new FormControl('', { validators: [Validators.required] }),
+    postalCode: new FormControl('', { validators: [Validators.required] }),
+    city: new FormControl('', { validators: [Validators.required] }),
+    role: new FormControl<
+      'student' | 'teacher' | 'employee' | 'founder' | 'other'
+    >('student', { validators: Validators.required }),
+    agree: new FormControl(false, { validators: Validators.required }),
   });
 
   get emailIsInvalid() {
@@ -43,12 +56,10 @@ export class SignupComponent {
   }
 
   onRegister() {
-    const enteredEmail = this.form.value.email;
-    const enteredPassword = this.form.value.password;
-    console.log(enteredEmail, enteredPassword);
+    console.log(this.form);
   }
 
   onReset() {
-    this.form.setValue({ email: '', password: '' });
+    this.form.reset();
   }
 }
